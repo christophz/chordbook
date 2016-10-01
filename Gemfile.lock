@@ -179,6 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (= 1.13.2)
   byebug
   coffee-rails (~> 4.1.0)
   foundation-rails (~> 6.2.3.0)
