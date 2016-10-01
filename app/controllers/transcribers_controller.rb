@@ -1,0 +1,2 @@
+class TranscribersController < ApplicationController
+end
