@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
     resources :songs
+    resources :transcriptions
+    resources :transcribers
 
     get 'directory/index'
 
