@@ -1,11 +1,16 @@
 .row
     %h1 Add new song
 
-    = form_for :article do |f|
+    = form_for :song, url: songs_path do |f|
         = f.label :title
         %br
         = f.text_field :title
-        = f.label :text
+
+        = f.label :musician
         %br
-        = f.text_area :text
+        = f.text_field :musician
+
+        = f.label :originalkey
+        %br
+        = f.text_field :originalkey
         = f.submit :class => 'button'
