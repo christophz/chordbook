@@ -1,6 +1,9 @@
 .row
     %h1 All chords
 
+    .create
+        = link_to 'Add New Song', new_song_path, :class => 'button'
+
     %table
         %tr
             %thead
@@ -11,10 +14,10 @@
                 %th
                     Versionen
 
-        %tr
-            %td
-                Douglas Dare
-            %td
-                Lungful
-            %td
-                1
+        - @songs.each do |song|
+
+            %tr
+                %td= song.musician
+
+                %td= link_to song.title, song_path(song)
+                %td COUNT (TO DO)
