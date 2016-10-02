@@ -2,4 +2,9 @@
     %h1= @song.title
 
     %p=@song.musician
-    %strong=@song.originalkey
+    %p
+        Original Key:
+        \#{@song.originalkey}
+
+    .create
+        = link_to 'Add New Transcription', new_transcription_path, :class => 'button'

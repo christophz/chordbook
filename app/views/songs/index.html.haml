@@ -1,2 +1,20 @@
 .row
     %h1 Index
+
+    %table
+        %tr
+            %thead
+                %th
+                    Composer
+                %th
+                    Song
+                %th
+                    Versionen
+
+        - @songs.each do |song|
+
+            %tr
+                %td= song.musician
+
+                %td= link_to song.title, song_path(song)
+                %td COUNT
