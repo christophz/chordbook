@@ -1,0 +1,15 @@
+.row
+    -# %h1= @transcription.title
+
+    %p
+        Key:
+        \#{@transcription.key}
+
+    %p= @transcription.lyrics
+
+    %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "430", :src => "http://www.youtube.com/embed/#{@transcription.video}", :title => "YouTube video player", :width => "640"}
+
+    .create
+        = link_to "All Transcriptions", { :controller => :transcriptions, :action => :index }, { class: 'button'}
+
+    

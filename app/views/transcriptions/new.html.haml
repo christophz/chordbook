@@ -1,11 +1,25 @@
 .row
-    %h1 Add new transcription
+    %h1 Add New Transcription
 
-    = form_for :article do |f|
-        = f.label :title
+    = form_for :transcription, url: transcriptions_path do |f|
+        = f.label :level
         %br
-        = f.text_field :title
-        = f.label :text
+        = f.text_field :level
+
+        = f.label :key
         %br
-        = f.text_area :text
+        = f.text_field :key
+
+        = f.label :lyrics
+        %br
+        = f.text_area :lyrics
+
+        = f.label_tag 'video', 'Paste the part after the "watch?"" part of your YouTube Link'
+        %br
+        = f.text_field :video
+
+        = f.label :comment
+        %br
+        = f.text_area :comment
+
         = f.submit :class => 'button'

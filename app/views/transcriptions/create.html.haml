@@ -1,0 +1,9 @@
+.row
+    -# %h1= @transcription.title
+
+    %p
+        Key:
+        \#{@transcription.key}
+
+    .create
+        = link_to 'All Transcriptions', transcription_path(@transcriptions), :class => 'button'

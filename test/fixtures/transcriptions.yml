@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  level: 1
+  key: MyString
+  lyrics: MyText
+  video: MyString
+  comment: MyText
+
+two:
+  level: 1
+  key: MyString
+  lyrics: MyText
+  video: MyString
+  comment: MyText
