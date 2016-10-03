@@ -20,4 +20,4 @@
                 %td= song.musician
 
                 %td= link_to song.title, song_path(song)
-                %td COUNT (TO DO)
+                %td= link_to song.transcriptions.count, song_path(song)
