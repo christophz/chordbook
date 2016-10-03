@@ -8,3 +8,23 @@
 
     .create
         = link_to 'Add New Transcription', new_transcription_path, :class => 'button'
+
+    %h2 Existing Transcriptions
+
+    %table
+        %tr
+            %thead
+                %th
+                    Version
+                %th
+                    Level
+                %th
+                    Key
+
+        - @transcriptions.each do |transcription|
+
+            %tr
+                %td= link_to transcription.comment, transcription_path(transcription)
+
+                %td= transcription.level
+                %td= transcription.key
