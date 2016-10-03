@@ -7,7 +7,7 @@
         \#{@song.originalkey}
 
     .create
-        = link_to 'Add New Transcription', new_transcription_path, :class => 'button'
+        = link_to 'Add New Transcription', new_transcription_path(:song_id=>@song.id), :class => 'button'
 
     %h2 Existing Transcriptions
 

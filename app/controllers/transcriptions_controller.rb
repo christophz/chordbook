@@ -23,6 +23,6 @@ class TranscriptionsController < ApplicationController
 
     private
         def transcription_params
-            params.require(:transcription).permit(:key, :level, :lyrics, :video, :comment)
+            params.require(:transcription).permit(:key, :level, :lyrics, :video, :comment, :song_id)
         end
 end

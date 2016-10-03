@@ -1,6 +1,5 @@
 .row
     %h1 Add New Transcription
-
     = form_for :transcription, url: transcriptions_path do |f|
         = f.label :level
         %br
@@ -21,5 +20,7 @@
         = f.label :comment
         %br
         = f.text_area :comment
+
+        = f.hidden_field :song_id, :value => params[:song_id]
 
         = f.submit :class => 'button'
