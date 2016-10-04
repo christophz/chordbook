@@ -1,5 +1,5 @@
 .row
-    %h1= @song.title
+    %h1=@song.title
 
     %p=@song.musician
     %p
@@ -20,6 +20,8 @@
                     Level
                 %th
                     Key
+                %th
+                    Actions
 
         - @transcriptions.each do |transcription|
 
@@ -28,3 +30,6 @@
 
                 %td= transcription.level
                 %td= transcription.key
+                %td
+                    = link_to 'Edit', edit_transcription_path(transcription)
+                    = link_to 'Delete', transcription_path(transcription), method: :delete, data: { confirm: 'Are you sure?' }

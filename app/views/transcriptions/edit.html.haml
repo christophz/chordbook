@@ -1,7 +1,8 @@
 .row
-    %h1 Add New Transcription
+    %h1= @transcription.song.title
+    %h2 Edit Transcription
 
-    = form_for :transcription, url: transcriptions_path do |f|
+    = form_for @transcription, { :action => "update" } do |f|
         = f.label :level
         %br
         = f.text_field :level
