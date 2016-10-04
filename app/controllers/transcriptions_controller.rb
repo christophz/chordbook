@@ -17,8 +17,22 @@ class TranscriptionsController < ApplicationController
         end
     end
 
+    def edit
+        @transcription = Transcription.find(params[:id])
+    end
+
     def show
         @transcription = Transcription.find(params[:id])
+    end
+
+    def update
+        @transcription = Transcription.find(params[:id])
+    end
+
+    def destroy
+        @transcription = Transcription.find(params[:id])
+        @transcription.destroy
+        redirect_to @transcription.song
     end
 
     private
