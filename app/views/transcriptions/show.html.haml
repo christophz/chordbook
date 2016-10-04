@@ -6,7 +6,7 @@
         Key:
         \#{@transcription.key}
 
-    %p= @transcription.lyrics
+    %p= markdown(@transcription.lyrics)
 
     - unless @transcription.video.blank?
 
@@ -15,4 +15,4 @@
 
     .create
         = link_to "Back to all versions", { :controller => :songs, :action => :show, :id => @transcription.song_id }, { class: 'button'}
-        = link_to 'Edit Transcription', edit_transcription_path(@transcription), { class: 'button' }
+        = link_to 'Edit Transcription', edit_transcription_path(:song_id => @transcription.song_id), :class => 'button'
