@@ -1,2 +1,0 @@
-module TranscribersHelper
-end
