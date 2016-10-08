@@ -15,6 +15,7 @@
     .transcription__lyrics#transcription= markdown(@transcription.lyrics)
 
     - unless @transcription.video.blank?
+        %h2 Video
 
         %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "430", :src => "https://www.youtube.com/embed/#{@transcription.video}", :title => "YouTube video player", :width => "640"}
 
