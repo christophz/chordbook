@@ -7,7 +7,7 @@ class Transcriber < ActiveRecord::Base
   has_many :transcriptions
   has_many :songs
 
-  validates :name, :email, :presence => true
+  validates :email, :presence => true
   validates :instruments, :length => { :maximum => 100 }
 
   validates :facebook_link, :bandcamp_link, :twitter_link, :soundcloud_link, :url => {:allow_blank => true}
