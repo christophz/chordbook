@@ -3,9 +3,9 @@ Rails.application.routes.draw do
     resources :transcriptions
     resources :transcribers
 
-    get 'directory/index'
+    get 'songs/index'
 
-    root 'directory#index'
+    root 'songs#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
