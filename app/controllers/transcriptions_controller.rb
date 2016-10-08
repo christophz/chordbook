@@ -28,18 +28,11 @@ class TranscriptionsController < ApplicationController
     def update
         @transcription = Transcription.find(params[:id])
 
-        # @transcription.key = "G"
-        # @transcription.save
         if @transcription.update_attributes(transcription_params)
             render 'show'
         else
             render 'edit'
         end
-        #     redirect_to root_url
-        # else
-        #     @transcriptions = Transcription.all
-        #     render :action => 'edit'
-        # end
     end
 
     def destroy
