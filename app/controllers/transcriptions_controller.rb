@@ -1,14 +1,12 @@
 class TranscriptionsController < ApplicationController
-    def index
-        @transcriptions = Transcription.all
-    end
+    before_action :authenticate_transcriber!, except: [:show]
 
     def new
-        @transcription = Transcription.new
+        @transcription = current_transcriber.transcriptions.build
     end
 
     def create
-        @transcription = Transcription.new(transcription_params)
+        @transcription = current_transcriber.transcriptions.build(transcription_params)
 
         if @transcription.save
             redirect_to @transcription

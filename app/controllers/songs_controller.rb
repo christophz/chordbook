@@ -1,15 +1,15 @@
 class SongsController < ApplicationController
-
+    before_action :authenticate_transcriber!, except: [:index, :show]
     def index
         @songs = Song.all
     end
 
     def new
-        @song = Song.new
+        @song = current_transcriber.songs.build
     end
 
     def create
-        @song = Song.new(song_params)
+        @song = current_transcriber.songs.build(song_params)
 
         if @song.save
             redirect_to @song
