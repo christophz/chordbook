@@ -1,0 +1,37 @@
+.row.transcriber
+
+    %h1 Profile
+
+    %h2.transcriber__h2=@transcriber.name
+
+    %strong eMail
+    %p=@transcriber.email
+
+    - unless @transcriber.instruments.blank?
+        %strong Instruments
+        %p=@transcriber.instruments
+
+    - unless @transcriber.facebook_link.blank?
+        %strong Facebook
+        %a{:title => "Facebook Link", :href => @transcriber.facebook_link, :target => "new" }=@transcriber.facebook_link
+
+    - unless @transcriber.twitter_link.blank?
+        %strong Twitter
+        %a{:title => "Twitter Link", :href => @transcriber.twitter_link, :target => "new" }=@transcriber.twitter_link
+
+    - unless @transcriber.soundcloud_link.blank?
+        %strong Soundcloud
+        %a{:title => "Soundcloud Link", :href => @transcriber.soundcloud_link, :target => "new" }=@transcriber.soundcloud_link
+
+    - unless @transcriber.bandcamp_link.blank?
+        %strong Bandcamp
+        %a{:title => "Bandcamp Link", :href => @transcriber.bandcamp_link, :target => "new" }=@transcriber.bandcamp_link
+
+
+    %td.crud-links
+
+        - if transcriber_signed_in? && (@transcriber.id == current_transcriber.id)
+            = link_to 'Edit', edit_transcriber_path(@transcriber, :transcriber_id => @transcriber.id), :class => 'button'
+
+        %br
+        = link_to "All songs", root_path, :class => 'button'
