@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002194645) do
+ActiveRecord::Schema.define(version: 20161008182145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,32 +20,40 @@ ActiveRecord::Schema.define(version: 20161002194645) do
     t.string   "title"
     t.string   "musician"
     t.string   "originalkey"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "transcriber_id"
   end
 
   create_table "transcribers", force: :cascade do |t|
-    t.string   "name"
-    t.text     "instruments"
-    t.string   "email"
-    t.string   "facebook_link"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
+
+  add_index "transcribers", ["email"], name: "index_transcribers_on_email", unique: true, using: :btree
+  add_index "transcribers", ["reset_password_token"], name: "index_transcribers_on_reset_password_token", unique: true, using: :btree
 
   create_table "transcriptions", force: :cascade do |t|
     t.integer "song_id"
-    t.integer "transcriber_id"
     t.string  "level"
     t.string  "key"
     t.text    "lyrics"
     t.string  "video"
     t.text    "comment"
+    t.integer "transcriber_id"
   end
 
   add_index "transcriptions", ["song_id"], name: "index_transcriptions_on_song_id", using: :btree
-  add_index "transcriptions", ["transcriber_id"], name: "index_transcriptions_on_transcriber_id", using: :btree
 
   add_foreign_key "transcriptions", "songs"
-  add_foreign_key "transcriptions", "transcribers"
 end
