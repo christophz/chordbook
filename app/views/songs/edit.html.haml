@@ -1,0 +1,20 @@
+.row
+    %h1= @song.title
+    %h2 Edit Transcription
+
+    = form_for @song, { :action => "update" } do |f|
+        = f.label :title
+        %br
+        = f.text_field :title
+
+        = f.label :musician
+        %br
+        = f.text_field :musician
+
+        = f.label :originalkey
+        %br
+        = f.text_field :originalkey
+
+        = f.hidden_field :song_id, :value => params[:id]
+
+        = f.submit :class => 'button'
