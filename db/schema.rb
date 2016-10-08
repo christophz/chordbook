@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008182145) do
+ActiveRecord::Schema.define(version: 20161008192239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,12 @@ ActiveRecord::Schema.define(version: 20161008182145) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.text     "instruments"
+    t.string   "facebook_link"
+    t.string   "twitter_link"
+    t.string   "bandcamp_link"
+    t.string   "soundcloud_link"
   end
 
   add_index "transcribers", ["email"], name: "index_transcribers_on_email", unique: true, using: :btree
