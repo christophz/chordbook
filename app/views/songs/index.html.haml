@@ -17,6 +17,8 @@
                     Versions
                 %th
                     Actions
+                %th
+                    Transcriber
 
         - @songs.each do |song|
 
@@ -28,7 +30,8 @@
 
                 %td.crud-links
                     = link_to 'Show', song_path(song, :song_id => song.id)
-
-                    - if transcriber_signed_in?
+                    - if transcriber_signed_in? && (song.transcriber_id == current_transcriber.id)
                         = link_to 'Edit', edit_song_path(song, :song_id => song.id)
                         = link_to 'Delete', song_path(song), method: :delete, data: { confirm: 'Are you sure?' }
+
+                %td= link_to song.transcriber.name, transcriber_path(song.transcriber_id)

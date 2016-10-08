@@ -6,7 +6,7 @@
         Original Key:
         \#{@song.originalkey}
 
-    - if transcriber_signed_in?
+    - if transcriber_signed_in? && (@song.transcriber_id == current_transcriber.id)
         .create
             = link_to 'Add New Transcription', new_transcription_path(:song_id=>@song.id), :class => 'button'
 
@@ -34,7 +34,7 @@
 
                 %td.crud-links
                     = link_to 'Show', transcription_path(transcription, :song_id => @song.id)
-                    - if transcriber_signed_in?
+                    - if transcriber_signed_in? && (transcription.transcriber_id == current_transcriber.id)
                         = link_to 'Edit', edit_transcription_path(transcription, :song_id => @song.id)
                         = link_to 'Delete', transcription_path(transcription), method: :delete, data: { confirm: 'Are you sure?' }
 

@@ -19,6 +19,7 @@
                 %nav.user
                     - if transcriber_signed_in?
                         = link_to('Logout', destroy_transcriber_session_path, :method => :delete)
+                        = "(" + current_transcriber.email + ")"
                     - else
                         = link_to('Login', new_transcriber_session_path)
                 .logo
