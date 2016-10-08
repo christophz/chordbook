@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+  get 'transcriber/show'
+
     devise_for :transcribers
     resources :songs
     resources :transcriptions
+    resources :transcriber
 
     get 'songs/index'
 
+    # match "/transcribers/:id" => "transcriber#show"
+
+    get 'transcribers/:id', :to => 'transcriber#show'
+    get 'transcribers/:id/edit', :to => 'transcriber#edit'
     root 'songs#index'
 
   # Example of regular route:
