@@ -23,6 +23,27 @@ class SongsController < ApplicationController
         @transcriptions = @song.transcriptions
     end
 
+    def edit
+        @song = Song.find(params[:id])
+    end
+
+    def update
+        @song = Song.find(params[:id])
+        @transcriptions = @song.transcriptions
+
+        if @song.update_attributes(song_params)
+            render 'show'
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @song = Song.find(params[:id])
+        @song.destroy
+        redirect_to @song.song
+    end
+
     private
         def song_params
             params.require(:song).permit(:title, :musician, :originalkey)
