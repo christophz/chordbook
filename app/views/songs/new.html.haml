@@ -1,5 +1,5 @@
-.row
-    %h1 Add new song
+.row.songs
+    %h1.songs__h1 Add new song
 
     = form_for :song, url: songs_path do |f|
         = f.label :title

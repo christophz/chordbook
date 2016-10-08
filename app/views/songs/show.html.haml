@@ -1,5 +1,5 @@
-.row
-    %h1=@song.title
+.row.songs
+    %h1.songs__h1=@song.title
 
     %p=@song.musician
     %p
@@ -30,7 +30,7 @@
 
                 %td= transcription.level
                 %td= transcription.key
-                %td
+                %td.crud-links
                     = link_to 'Edit', edit_transcription_path(transcription, :song_id => @song.id)
                     = link_to 'Delete', transcription_path(transcription), method: :delete, data: { confirm: 'Are you sure?' }
 
