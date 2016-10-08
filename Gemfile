@@ -42,7 +42,7 @@ gem 'devise'
 gem 'redcarpet'
 gem 'friendly_id'
 gem 'jquery-turbolinks'
-gem 'valid_url'
+gem 'validate_url'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
