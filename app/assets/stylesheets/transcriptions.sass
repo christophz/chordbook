@@ -1,10 +1,28 @@
 #transcription_lyrics
     min-height: 400px
 
-.lyrics
-    font-family: "Ubuntu Mono"
+.transcription
+    strong
+        display: block
+        margin-bottom: 2px
 
-    em
-        font-style: normal
-        color: blue
-        font-weight: bold
+    &__input,
+    &__lyrics
+        font-family: "Ubuntu Mono"
+
+    &__lyrics
+        em
+            font-style: normal
+            color: blue
+            font-weight: bold
+            margin-top: 3px
+            display: inline-block
+
+    &__input
+        margin: 5px 5px 25px 0
+
+    &__h1
+        margin-bottom: 0
+
+    &__select
+        width: 10em
