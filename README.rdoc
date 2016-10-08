@@ -1,6 +1,10 @@
 = README
 == TO DO
 
-* Add user authentication
-* Transposing chords
-* 
+
+✅ Transpose chords
+✅ Make lyrics and chords editable via Markdown
+✅ Add basic user authentication (with Devise)
+* Add admin role
+* Move user_id parameter to model (stupid me ...)
+* Make transpose available via url parameter and not via JavaScript (persistent route!)
