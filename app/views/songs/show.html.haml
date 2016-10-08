@@ -34,4 +34,4 @@
                     = link_to 'Edit', edit_transcription_path(transcription, :song_id => @song.id)
                     = link_to 'Delete', transcription_path(transcription), method: :delete, data: { confirm: 'Are you sure?' }
 
-    = link_to "All songs", { :controller => :songs, :action => :index }, { class: 'button'}
+    = link_to "All songs", root_path, :class => 'button'
