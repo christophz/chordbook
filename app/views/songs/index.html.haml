@@ -2,8 +2,9 @@
 .row
     %h1 All Songs
 
-    .create
-        = link_to 'Add New Song', new_song_path, :class => 'button'
+    - if transcriber_signed_in?
+        .create
+            = link_to 'Add New Song', new_song_path, :class => 'button'
 
     %table
         %tr
@@ -13,7 +14,7 @@
                 %th
                     Song
                 %th
-                    Versionen
+                    Versions
                 %th
                     Actions
 
@@ -26,5 +27,8 @@
                 %td= link_to song.transcriptions.count, song_path(song)
 
                 %td.crud-links
-                    = link_to 'Edit', edit_song_path(song, :song_id => song.id)
-                    = link_to 'Delete', song_path(song), method: :delete, data: { confirm: 'Are you sure?' }
+                    = link_to 'Show', song_path(song, :song_id => song.id)
+
+                    - if transcriber_signed_in?
+                        = link_to 'Edit', edit_song_path(song, :song_id => song.id)
+                        = link_to 'Delete', song_path(song), method: :delete, data: { confirm: 'Are you sure?' }

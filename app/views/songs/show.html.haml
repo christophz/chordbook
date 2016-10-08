@@ -6,8 +6,9 @@
         Original Key:
         \#{@song.originalkey}
 
-    .create
-        = link_to 'Add New Transcription', new_transcription_path(:song_id=>@song.id), :class => 'button'
+    - if transcriber_signed_in?
+        .create
+            = link_to 'Add New Transcription', new_transcription_path(:song_id=>@song.id), :class => 'button'
 
     %h2 Existing Transcriptions
 
@@ -30,8 +31,11 @@
 
                 %td= transcription.level
                 %td= transcription.key
+
                 %td.crud-links
-                    = link_to 'Edit', edit_transcription_path(transcription, :song_id => @song.id)
-                    = link_to 'Delete', transcription_path(transcription), method: :delete, data: { confirm: 'Are you sure?' }
+                    = link_to 'Show', transcription_path(transcription, :song_id => @song.id)
+                    - if transcriber_signed_in?
+                        = link_to 'Edit', edit_transcription_path(transcription, :song_id => @song.id)
+                        = link_to 'Delete', transcription_path(transcription), method: :delete, data: { confirm: 'Are you sure?' }
 
     = link_to "All songs", root_path, :class => 'button'

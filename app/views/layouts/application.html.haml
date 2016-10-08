@@ -12,9 +12,17 @@
         = stylesheet_link_tag "application"
 
     %body
+        = render :partial => 'shared/flash_messages' if !flash.empty?
+
         .header
             .row
-                = link_to root_path do
-                    %strong Chordbook
+                %nav.user
+                    - if transcriber_signed_in?
+                        = link_to('Logout', destroy_transcriber_session_path, :method => :delete)
+                    - else
+                        = link_to('Login', new_transcriber_session_path)
+                .logo
+                    = link_to root_path do
+                        %strong Chordbook
 
         = yield
