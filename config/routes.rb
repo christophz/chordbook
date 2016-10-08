@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+    devise_for :transcribers
     resources :songs
     resources :transcriptions
-    resources :transcribers
 
     get 'songs/index'
 
