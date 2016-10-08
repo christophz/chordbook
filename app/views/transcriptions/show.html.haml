@@ -1,12 +1,18 @@
-.row
-    %h1= @transcription.song.title
+- title @transcription.song.title + " (" + @transcription.song.musician + ")"
+
+.row.transcription
+    %h1.transcription__h1= @transcription.song.title
     %p= @transcription.song.musician
 
-    %p
-        Key:
-        \#{@transcription.key}
+    %strong Key
+    %p.transcription__key= @transcription.key
 
-    .lyrics= markdown(@transcription.lyrics)
+    %strong.transcription__strong Transpose Song
+
+    %input#transposeDown{:type => "button", :class => "button alert small transcription__input", :value => "-1"}/
+    %input#transposeUp{:type => "button", :class => "button alert small transcription__input", :value => "+1"}/
+
+    .transcription__lyrics#transcription= markdown(@transcription.lyrics)
 
     - unless @transcription.video.blank?
 
