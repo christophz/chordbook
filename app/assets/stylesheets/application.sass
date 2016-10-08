@@ -16,23 +16,50 @@
 
  */
 
+html
+    -webkit-font-smoothing: antialiased
+    text-rendering: optimizeLegibility
+
+h1
+    margin-bottom: 1em
+
+h2
+    font-size: 2em
+    margin: 2em 0 1em
+
 .row
     padding-left: 1em
     padding-right: 1em
 
-.header strong
-    float: right
-    font-size: 3em
-    font-weight: 100
-
 .create
     margin: 2em 0
-
-h1
-    margin-bottom: 1em
 
 .crud-links a
     margin-right: 10px
 
     &:last-of-type
         margin-right: 0
+
+.notice
+    font-size: .8em
+    padding-top: .4em
+
+    &.success
+        color: green
+    &.failure
+        color: red
+
+.user
+    display: inline-block
+    width: 50%
+    padding-top: .7em
+
+.logo
+    display: inline-block
+    width: 50%
+    float: right
+    text-align: right
+
+    strong
+        font-size: 3em
+        font-weight: 100
